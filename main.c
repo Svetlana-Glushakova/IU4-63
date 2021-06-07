@@ -76,7 +76,6 @@ void string_parse(char* buf_str)
 {
   HAL_UART_Transmit(&huart1,(uint8_t*)buf_str,strlen(buf_str),0x1000);
   HAL_UART_Transmit(&huart4,(uint8_t*)buf_str,strlen(buf_str),0x1000);
-  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
 }
 
 void UART2_RxCpltCallback(void)
@@ -146,6 +145,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+   HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
